@@ -12,16 +12,6 @@ const { protect, authorize, checkActive } = require('../middleware/authMiddlewar
 
 const router = express.Router();
 
-// Temporary registration route for testing
-router.post('/register', async (req, res, next) => {
-  try {
-    const user = await require('../models/User').create(req.body);
-    res.status(201).json({ success: true, data: user });
-  } catch (err) {
-    next(err);
-  }
-});
-
 // Public route
 router.post('/login', login);
 
